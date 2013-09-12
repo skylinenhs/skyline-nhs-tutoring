@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block style_block %}
+    <style type="text/css">
+        table.table { width: 60%; }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <h1 id="">All Registered Students</h1>
+    
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Graduation year</th>
+                <th>Preferences</th>
+                <th>Registration date</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.graduation_year }}</td>
+                <td>{{ student.preferences }}</td>
+                <td class="nowrap">{{ student.registration_date.strftime('%b %d, %Y %I:%M %p') }}</td>
+                <td>
+                    (delete placeholder)
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="7">No students registered</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

@@ -2,12 +2,14 @@
 Initialize Flask app
 
 """
+import os.path
+
 from flask import Flask
 
 from flask_debugtoolbar import DebugToolbarExtension
 from gae_mini_profiler import profiler, templatetags
 from werkzeug.debug import DebuggedApplication
-
+from flaskext import login #, openid
 
 app = Flask('application')
 app.config.from_object('application.settings')
@@ -32,3 +34,8 @@ if app.debug:
 
 # GAE Mini Profiler (only enabled on dev server)
 app.wsgi_app = profiler.ProfilerWSGIMiddleware(app.wsgi_app)
+
+# Custom login manager
+login_manager = login.LoginManager()
+login_manager.init_app(app)
+#oid = openid.OpenID(app, os.path.join(basedir, 'tmp'))

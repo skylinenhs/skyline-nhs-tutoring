@@ -30,12 +30,33 @@ class ExampleModel(ndb.Model):
     timestamp = ndb.DateTimeProperty(auto_now_add=True)
 
 class Student(ndb.Model):
+    # Visible
     name = ndb.StringProperty(required=True)
     email = ndb.StringProperty(required=True)
     graduation_year = ndb.IntegerProperty(required=True)
     preferences = ndb.StringProperty(repeated=True, choices=SUBJECTS)
-    registration_date = ndb.DateTimeProperty(auto_now_add=True)
     
+    # Metadata
+    registration_date = ndb.DateTimeProperty(auto_now_add=True)
+    is_active = ndb.BooleanProperty(required=True)
+    
+    def is_authenticated(self):
+        return True
+        
+    def is_active(self):
+        return self.is_active
+        
+    def is_anonymous(self):
+        return False
+        
+    def get_id(self):
+        return self.key.name()
+        
+    @staticmethod
+    def load(student_id):
+        return models.Student.get_by_key_name(userid)
+        
+        
 class Tutor(ndb.Model):
     student = ndb.KeyProperty(required=True, kind=Student)
     signup_date = ndb.DateTimeProperty(required=True, auto_now_add=True)
