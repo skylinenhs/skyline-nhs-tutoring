@@ -27,7 +27,31 @@
 			"file": "src/application/views.py",
 			"settings":
 			{
-				"buffer_size": 3975,
+				"buffer_size": 4248,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/application/templates/list_students.html",
+			"settings":
+			{
+				"buffer_size": 1192,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/application/templates/list_examples.html",
+			"settings":
+			{
+				"buffer_size": 2982,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/application/urls.py",
+			"settings":
+			{
+				"buffer_size": 1521,
 				"line_ending": "Windows"
 			}
 		},
@@ -35,7 +59,7 @@
 			"file": "src/application/__init__.py",
 			"settings":
 			{
-				"buffer_size": 1069,
+				"buffer_size": 1071,
 				"line_ending": "Windows"
 			}
 		}
@@ -67,6 +91,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Michael/Dropbox/Projects/Organizations/Nhs/skyline-nhs-tutoring/src/application/templates/list_examples.html",
 		"/C/Users/Michael/Dropbox/Projects/Organizations/Nhs/skyline-nhs-tutoring/src/lib/flaskext/openid.py",
 		"/C/Users/Michael/Dropbox/Projects/Organizations/Nhs/skyline-nhs-tutoring/src/application/urls.py",
 		"/C/Users/Michael/Dropbox/Projects/Organizations/Nhs/skyline-nhs-tutoring/src/application/views.py",
@@ -175,15 +200,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3975,
+						"buffer_size": 4248,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1572,
-								1572
+								1209,
+								1209
 							]
 						],
 						"settings":
@@ -193,26 +218,84 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 765.0,
+						"translation.y": 528.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "src/application/__init__.py",
+					"file": "src/application/templates/list_students.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1069,
+						"buffer_size": 1192,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1014,
-								1014
+								470,
+								470
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/application/templates/list_examples.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2982,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								671,
+								671
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 225.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/application/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								369,
+								369
 							]
 						],
 						"settings":
@@ -220,7 +303,34 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 135.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/application/__init__.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1071,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								288,
+								288
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -296,7 +406,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 136.0,
+	"side_bar_width": 199.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

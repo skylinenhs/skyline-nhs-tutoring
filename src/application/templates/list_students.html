@@ -3,6 +3,9 @@
 {% block style_block %}
     <style type="text/css">
         table.table { width: 60%; }
+        
+        .list-checkbox { padding-left:0; }
+        .list-checkbox li { list-style-type: none; }
     </style>
 {% endblock %}
 
@@ -27,10 +30,10 @@
                 <td>{{ student.name }}</td>
                 <td>{{ student.email }}</td>
                 <td>{{ student.graduation_year }}</td>
-                <td>{{ student.preferences }}</td>
+                <td>{{ ', '.join(student.preferences) }}</td>
                 <td class="nowrap">{{ student.registration_date.strftime('%b %d, %Y %I:%M %p') }}</td>
                 <td>
-                    (delete placeholder)
+                    (delete/edit button placeholder)
                 </td>
             </tr>
             {% else %}
@@ -38,5 +41,39 @@
             {% endfor %}
         </tbody>
     </table>
+    <p>
+        <a class="btn btn-primary" data-toggle="modal" data-target="#new-student-modal">
+            <i class="icon-plus-sign icon-white"></i>
+            Add new student
+        </a>
+    </p>
+    
+    {% include 'admin_new_student.html' %} {# pull in admin_new_student form (modal dialog) #}
 
 {% endblock content %}
+
+{% block tail_script %}
+    <script>
+        var FormHelpers = {
+            validate: function (form, evt) {
+                // Form validation for modal dialog
+                var email = form.find('#email').val();
+                
+                if (!(email)) {
+                    evt.preventDefault();
+                    Utils.renderFieldErrorTooltip('#email', 'Email is required', 'right');
+                }
+            },
+            init: function () {
+                var self = this;
+                var student_form = $('#new-student-form');
+                student_form.on('submit', function (evt) {
+                    self.validate(student_form, evt)
+                });
+            }
+        };
+        $(document).ready(function() {
+            FormHelpers.init();
+        });
+    </script>
+{% endblock tail_script %}

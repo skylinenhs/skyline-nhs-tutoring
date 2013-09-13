@@ -47,13 +47,61 @@ def login():
     
 # Main application
 
-def list_students():
+def index():
+    return "Homepage!"
+
+def change_user_settings():
+    return "Change user settings!"
+
+
+# Student-focused pages
+
+def complete_registration():
+    return "Complete registration!"
+
+def list_individual_student(student_id):
+    return "List individual student!"
+
+
+# Admin-focused pages
+
+def list_all_students():
     """Lists all registered students."""
     students = models.Student.query()
-    return render_template('list_students.html', students=students)
+    form = forms.NewStudentForm()
     
+    graduation_year = -1
+    try:
+        graduation_year = int(graduation_year)
+    except ValueError:
+        pass
+    
+    if form.validate_on_submit():
+        print "Hi there"
+        student = models.Student(
+            name = form.name.data,
+            email = form.email.data,
+            graduation_year = graduation_year,
+            preferences = form.preferences.data
+        )
+        try:
+            student.put()
+            student_id = student.key.id()
+            flash(u'Student {} successfully saved.'.format(student_id), 'success')
+            return redirect(url_for('list_all_students'))
+        except CapabilityDisabledError:
+            flash(u'App Engine Datastore is currently in read-only mode.', 'error')
+            return redirect(url_for('list_all_students'))
+    
+    return render_template('list_students.html', students=students, form=form)
+    
+def list_all_admins():
+    return "List all admins!"
 
+def list_all_sessions():
+    return "List all tutoring sessions!"
 
+    
 
 # Examples: Remove later
 

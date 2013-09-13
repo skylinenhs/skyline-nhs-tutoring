@@ -16,16 +16,23 @@ from application import views
 app.add_url_rule('/_ah/warmup', 'warmup', view_func=views.warmup)
 
 
-app.add_url_rule('/students', 'list_students', view_func=views.list_students)
+## Main content
 
+app.add_url_rule('/', 'index', view_func=views.index)
+app.add_url_rule('/settings', 'change_user_settings', view_func=views.change_user_settings)
+
+### Student-focused pages
+app.add_url_rule('/complete-registration', 'complete_registration', view_func=views.complete_registration)
+app.add_url_rule('/student/<student_id>', 'list_individual_student', view_func=views.list_individual_student)
+
+### Admin-focused pages
+app.add_url_rule('/students', 'list_all_students', view_func=views.list_all_students, methods=['GET', 'POST'])
+app.add_url_rule('/admins', 'list_all_admins', view_func=views.list_all_admins, methods=['GET', 'POST'])
+app.add_url_rule('/sessions', 'list_all_sessions', view_func=views.list_all_sessions, methods=['GET', 'POST'])
 
 
 
 ## Todo: remove examples
-
-
-# Home page
-app.add_url_rule('/', 'home', view_func=views.home)
 
 # Say hello
 app.add_url_rule('/hello/<username>', 'say_hello', view_func=views.say_hello)

@@ -28,13 +28,13 @@ class ExampleModel(ndb.Model):
     example_description = ndb.TextProperty(required=True)
     added_by = ndb.UserProperty()
     timestamp = ndb.DateTimeProperty(auto_now_add=True)
-
+    
 class Student(ndb.Model):
     # Visible
-    name = ndb.StringProperty(required=True)
     email = ndb.StringProperty(required=True)
-    graduation_year = ndb.IntegerProperty(required=True)
-    preferences = ndb.StringProperty(repeated=True, choices=SUBJECTS)
+    name = ndb.StringProperty()
+    graduation_year = ndb.IntegerProperty()
+    preferences = ndb.StringProperty(choices=SUBJECTS, repeated=True)
     
     # Metadata
     registration_date = ndb.DateTimeProperty(auto_now_add=True)

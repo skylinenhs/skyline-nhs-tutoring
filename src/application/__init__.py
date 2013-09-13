@@ -14,6 +14,11 @@ from flaskext import login #, openid
 app = Flask('application')
 app.config.from_object('application.settings')
 
+# Custom login manager
+login_manager = login.LoginManager()
+login_manager.init_app(app)
+#oid = openid.OpenID(app, os.path.join(basedir, 'tmp'))
+
 # Enable jinja2 loop controls extension
 app.jinja_env.add_extension('jinja2.ext.loopcontrols')
 
@@ -35,7 +40,4 @@ if app.debug:
 # GAE Mini Profiler (only enabled on dev server)
 app.wsgi_app = profiler.ProfilerWSGIMiddleware(app.wsgi_app)
 
-# Custom login manager
-login_manager = login.LoginManager()
-login_manager.init_app(app)
-#oid = openid.OpenID(app, os.path.join(basedir, 'tmp'))
+
